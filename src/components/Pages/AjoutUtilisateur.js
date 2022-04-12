@@ -93,7 +93,7 @@ const AjoutUtilisateur = () => {
         onChange={(e) => setValues({ ...values, role: e.target.value })}
         inputProps={{ type: 'text', placeholder: "Entrer le role de l'utilisateur" }}
       /></label>
-      <Button2 onClick={handleAddUser}>Submit</Button2>
+      <Button2 onClick={()=> {if(window.confirm('Voulez-vous ajouter cet utilisateur?')){ handleAddUser();}}}>Envoyer</Button2>
       </Form>
     </StyledDiv>
   );

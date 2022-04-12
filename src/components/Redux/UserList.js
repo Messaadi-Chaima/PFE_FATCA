@@ -12,6 +12,10 @@ const UserList = () => {
 const handleSupprimerUser=(id) =>{
     dispatch(deleteUser({id}));
 }
+const DateAjout =() =>{
+  var format={year: 'numeric', month:'long', day:'numeric'}
+  return new Date().toLocaleDateString([],DateAjout);
+}
   return (
 <div>
       <Link to="AjoutUtilisateur"><Button>Ajout</Button></Link>
@@ -20,7 +24,8 @@ const handleSupprimerUser=(id) =>{
            <tr>
           <Th >Nom d'utilisateur</Th>
           <Th>Email</Th>
-          <Th>Role</Th>
+          <Th>Role</Th>     
+          <Th>Date d'ajoute</Th>
           <Th>Action</Th>
         </tr>
          </thead>
@@ -30,8 +35,9 @@ const handleSupprimerUser=(id) =>{
               <Td>{user.name}</Td>
               <Td>{user.email}</Td>
               <Td>{user.role}</Td>
+              <Td>{DateAjout()}</Td>
               <Td>
-              <Button1 onClick={()=> handleSupprimerUser(user.id)}>Supprimer</Button1></Td>
+              <Button1 onClick={()=> {if(window.confirm('Voulez-vous vraiment supprimer cet utilisateur?')){ handleSupprimerUser(user.id);}}}>Supprimer</Button1></Td>
             </tr>
              )) }
           </tbody>
