@@ -39,5 +39,4 @@ const handleSupprimerUser=(id) =>{
 </div>
   )
 }
-
 export default UserList

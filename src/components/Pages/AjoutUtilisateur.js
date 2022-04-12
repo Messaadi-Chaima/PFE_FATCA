@@ -1,9 +1,6 @@
 import React,{useState} from 'react'
 import styled,{createGlobalStyle , css} from 'styled-components'
-//import Button from '../StyledComponents/Formulaire/Button';
 import Form from '../StyledComponents/Formulaire/Form';
-//import Fieldset from '../StyledComponents/Formulaire/Fieldset';
-//import { Link} from 'react-router-dom';
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
@@ -72,39 +69,6 @@ const AjoutUtilisateur = () => {
     }));
     navigate('/');
   }
-/*
-const Initial ={
-
-Nom: '',
-email: '',
-password:'',
-role:'', 
-}
-*/
-
-  /*
-const[state,setState]=useState(Initial);
-const [error,setError]=useState('');
-
-const handleSubmit= e => {
-  e.preventDefault();
-    console.log('submitted!');
-   console.log(state);
-    for (let key in state) {
-      if (state[key] === '') {
-        setError(`vous devez saisir le ${key}`)
-        return
-      }
-    }
-    setError('');
-    console.log("Succeeded!!!");
-  };
-const handleInput = e => {
-  const inputName = e.currentTarget.name;
-   const value = e.currentTarget.value;
-   setState(prev => ({...prev, [inputName]: value}));
-};
-*/
  return (
 <StyledDiv>
   <GlobalStyle />
@@ -113,21 +77,21 @@ const handleInput = e => {
       <StyledInput
         value={values.name}
         onChange={(e) => setValues({ ...values, name: e.target.value })}
-        inputProps={{ type: 'text', placeholder: 'Jhon Doe' }}
+        inputProps={{ type: 'text', placeholder: 'Nom Utilisateur' }}
       /></label>
       <label> Email
       <StyledInput
         label="Email"
         value={values.email}
         onChange={(e) => setValues({ ...values, email: e.target.value })}
-        inputProps={{ type: 'email', placeholder: 'jhondoe@mail.com' }}
+        inputProps={{ type: 'email', placeholder: "Entrez l'email de l'utilisateur" }}
       /></label>
       <label>Role
       <StyledInput
         label="role"
         value={values.role}
         onChange={(e) => setValues({ ...values, role: e.target.value })}
-        inputProps={{ type: 'text', placeholder: 'Lecture' }}
+        inputProps={{ type: 'text', placeholder: "Entrer le role de l'utilisateur" }}
       /></label>
       <Button2 onClick={handleAddUser}>Submit</Button2>
       </Form>
