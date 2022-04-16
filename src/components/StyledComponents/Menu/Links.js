@@ -1,14 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
-const StyledLinks = styled.ul`
-display: flex;
-list-style: none;
- padding: 0;
- margin: 0;
- `;
-
+const StyledLink = styled(Link)`
+float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  &:hover{
+    background-color: #ddd;
+  }
+  `;
  const Links=(props) => {
-     return <StyledLinks {...props}> {props.children}</StyledLinks>};
+     return <StyledLink {...props}> {props.children}</StyledLink>};
 
  export default Links

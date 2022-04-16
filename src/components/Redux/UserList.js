@@ -18,7 +18,7 @@ const DateAjout =() =>{
 }
   return (
 <div>
-      <Link to="AjoutUtilisateur"><Button>Ajout</Button></Link>
+      <Link to="/AjoutUtilisateur"><Button>Ajout</Button></Link>
       <Table>       
         <thead>
            <tr>

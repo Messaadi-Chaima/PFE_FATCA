@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
 import { addUser } from "../Redux/userSlice"
 import Button2 from '../Redux/Button2';
-import TextField from '../Redux/TextField'
+import Link1 from '../StyledComponents/Menu/Link1';
 const GlobalStyle = createGlobalStyle`
 html {
   height: 100%.
@@ -70,7 +70,7 @@ const AjoutUtilisateur = () => {
     navigate('/');
   }
  return (
-<StyledDiv>
+    <StyledDiv>
   <GlobalStyle />
   <Form>
     <label> Nom d'utilisateur
@@ -93,7 +93,7 @@ const AjoutUtilisateur = () => {
         onChange={(e) => setValues({ ...values, role: e.target.value })}
         inputProps={{ type: 'text', placeholder: "Entrer le role de l'utilisateur" }}
       /></label>
-      <Button2 onClick={()=> {if(window.confirm('Voulez-vous ajouter cet utilisateur?')){ handleAddUser();}}}>Envoyer</Button2>
+     <Link1 to='/Utilisateurs'> <Button2 onClick={()=> {if(window.confirm('Voulez-vous ajouter cet utilisateur?')){ handleAddUser();}}}>Envoyer</Button2></Link1>
       </Form>
     </StyledDiv>
   );

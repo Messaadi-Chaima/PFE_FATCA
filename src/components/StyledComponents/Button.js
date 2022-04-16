@@ -15,7 +15,7 @@ bottom: 0;
 margin: auto;
 background-color: crimson;
 border: 2.5px solid #0e172c;
-transform: translate(500px, -120px);
+transform: translate(500px, -90px);
 font-size: 16px;
 transition: background-color 2.2s;
 transition-duration: 3s;
@@ -30,6 +30,7 @@ transition: 1.5s;
     background-color: #F9C0C0;
     color:crimson;
     font-size: 18px;
+    cursor: pointer;
 }
 `;
  const Button=(props) => {

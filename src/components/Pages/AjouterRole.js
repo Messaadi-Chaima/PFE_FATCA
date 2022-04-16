@@ -4,12 +4,14 @@ import Table from '../StyledComponents/Table/Table';
 import Th from '../StyledComponents/Table/Th';
 import Td from '../StyledComponents/Table/Td';
 import Button1 from '../StyledComponents/Formulaire/Button1';
-function Roles() {
+import Menu from '../Menu';
+function AjouterRole() {
   const dispatch = useDispatch();
   const users = useSelector(store => store.users);
 
   return (
     <div> 
+      <Menu />
       <h2 style={{transform: 'translateY(150px)',color:"#B22222"}}>Voici les role de votre utilisateurs</h2>
         <i> <p style={{transform: 'translateY(170px)',textAlign:'center'}}>Vous pouvez d'ajouter et supprimer un role de votre utilisateur en cliquant simplement sur le bouton Ajouter et Supprimer</p></i>
          <Table>       
@@ -37,4 +39,4 @@ function Roles() {
   );
 }
 
-export default Roles;
+export default AjouterRole;

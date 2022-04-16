@@ -1,11 +1,12 @@
-import React, { Component, useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Image1 from '../Images/icon.png'
 import { Link } from 'react-router-dom'
 import UserList from '../Redux/UserList'
+import Menu from '../Menu'
 function  Utilisateurs() {
   const StyledDiv = styled.div`    
-  padding-top: 90px;
+  padding-top: 60px;
 `;
 const StyledP = styled.p`    
 font-size: 20px;
@@ -17,7 +18,7 @@ const StyledImg = styled.img`
 height:70px;
 width:80px;
 float: right;
-transform: translateY(40px);
+transform: translateY(17px);
 &:hover{
   cursor: pointer;
 }
@@ -40,12 +41,15 @@ color:#B22222;
 `;
 
 return (
+  <div>
+    <Menu />
 <StyledDiv>
 <StyledP> Vous pouvez ajouter un utilisateur en cliquant simplement sur le bouton Ajout a droite de votre ecran</StyledP>
 <StyledImg src={Image1} alt='ajout' />
 <StyledH2>Vos Utilisateurs</StyledH2> 
 <UserList />
 </StyledDiv>
+</div>
   );
 }
 
