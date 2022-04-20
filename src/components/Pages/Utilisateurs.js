@@ -18,7 +18,7 @@ const StyledImg = styled.img`
 height:70px;
 width:80px;
 float: right;
-transform: translateY(17px);
+transform: translateY(44px);
 &:hover{
   cursor: pointer;
 }
