@@ -1,56 +1,41 @@
-import React from 'react';
-import Links from './StyledComponents/Menu/Links';
-import styled from 'styled-components';
-import Button from './StyledComponents/Menu/Button';
-import Div from './StyledComponents/Menu/Div';
-  const StyledDiv2 = styled.div`
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  `;
-  const StyledDiv1 = styled.div`
-  float: left;
-  overflow: hidden;
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-  :hover ${StyledDiv2}{
-    display: block;
-  }
-  `;
-function Menu() {
-  return (
-    <Div>
-    <StyledDiv1>
-<Button>Gestion des utilisateur</Button>
-<StyledDiv2>
-  <Links to='/Utilisateurs'>Ajouter un utilisateur</Links>
-  <Links to='/SpprimerUtilisateur'>Supprimer un utilisateur</Links>
-</StyledDiv2>
-</StyledDiv1> 
-<StyledDiv1>
-<Button>Gestion des Roles</Button>
-<StyledDiv2>
-  <Links to='/AjouterRole'>Ajouter un Role</Links>
-  <Links to='/SupprimerRole'>Supprimer un Role</Links>
-</StyledDiv2>
-</StyledDiv1> 
-<StyledDiv1>
-<Button>Gestion des droits d'acces</Button>
-<StyledDiv2>
-  <Links to='/AjouterDroitAcces'>Ajouter un droit d'acces</Links>
-  <Links to='/SupprimerDroitAcces'>Supprimer un  droit d'acces</Links>
-</StyledDiv2>
-</StyledDiv1> 
-</Div>
+import React from "react";
+import {Drawer,List,ListItem,ListItemText,ListItemIcon} from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import KeyIcon from '@mui/icons-material/Key';
+import { useNavigate } from "react-router-dom";
+
+function Menu(props){
+  const navigate = useNavigate();
+  const ItemsList=[
+    {text:'Gestion des utilisateur',
+     icon: <PersonIcon />,
+     onClick: () => navigate('/Utilisateurs')
+  },
+  { text:'Gestion des roles',
+  icon: <AssignmentIcon />,
+  onClick: () => navigate('/AjouterRole')
+},
+  {text:'Gestion des droits acces',
+  icon: <KeyIcon />,
+  onClick: () => navigate('/AjouterDroitAcces')
+},
+  ];
+  return(
+<Drawer variant="permanent" anchor="left">
+  <List>
+    {
+      ItemsList.map((item,index) => {
+        const {text,icon, onClick}=item;
+        return (
+        <ListItem button key={text} onClick={onClick}>
+          {icon && <ListItemIcon>{icon}</ListItemIcon>}
+          <ListItemText primary={text} />
+        </ListItem>
+        );
+        })}
+  </List>
+</Drawer>
   );
 }
-export default Menu;
+export default Menu

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 const StyledForm = styled.form`
-    width: 100%;
-    max-width: 700px;
+    transform: translate(500px,70px);
+    width: 400px;
     padding: 40px;
     background-color: #fff;
     border-radius: 10px;

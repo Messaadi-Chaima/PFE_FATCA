@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledTable = styled.table`
-    background-color: #F6FFA4;
+    background-color: white;
     border-collapse: collapse;
-    width: 90%;
-    transform: translateY(200px);
+    width: 70%;
+    transform: translate(150px,210px);
     margin-left: auto;
      margin-right: auto;
   `;

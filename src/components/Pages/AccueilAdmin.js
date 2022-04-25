@@ -1,89 +1,89 @@
 import React from 'react'
-import Image from '../Images/acces.png'
 import Image1 from '../Images/parametre.png'
-import Image2 from '../Images/Role.png'
-import Image3 from '../Images/utilisateur.jpg'
-import styled from 'styled-components';
-import { Link } from 'react-router-dom'
-import Button from '../StyledComponents/Button'
-const StyledImg = styled.img`
-height:350px;
-border-style: outset;
-border-color: Salmon;
-&:hover{
--webkit-transform: scale(0.9);
-transform: scale(0.9);
-border-color: LightSalmon;
-&:hover{
-cursor: pointer;
-}
-}
-`;
-const StyledDiv = styled.div`
-transform: translateX(200px);
-`;
-const StyledH1 = styled.h1`
-transform: translate(500px, 50px);
-`;
-const StyledP = styled.p`
-text-align:center;
-transform:translateY(200px);
-font-family:Comic Sans MS, Comic Sans, cursive;
-font-size:18px;
-&:hover{
-border-style: outset;
-border-color: Salmon;
-cursor: pointer;
-font-style: italic;
-font-size:18.5px;
-}
-`;
-const StyledH2 = styled.h2`
-text-align:center;
-transform: translateY(300px);
-`;
-const StyledImg1 = styled.img`
-height:90px;
-&:hover{
-cursor: pointer;
-transform: scale(1.1) rotate(260deg);
-}
-`;
-const StyledDiv1 = styled.div`
-transform:translate(65px,140px);
-`;
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 function AccueilAdmin(){
     return(
         <div >
-         <StyledDiv1><Link to='/Menu'><Button>Commencer</Button></Link></StyledDiv1> 
-            <StyledImg1 src={Image1} alt='parametre'/>
-            <StyledH1>Administration</StyledH1>
-            <div>
-            <StyledP>Bienvenu dans la page administration, vous pouvez tout de suit parametrer l'application
-             en vous appuyons sur le boutton "Commencer" en haut à droite de votre écran, pour gérer votre rôles grace aux les modules que nous vous proposants.
-            </StyledP>
-            <StyledH2>Nos Modules</StyledH2>
-            <div style={{transform:'translate(300px,400px)'}}>
-            <StyledDiv>
-           <StyledImg src={Image3} alt='utilisateur'/>   
-           <h3>Gestion des utilisateurs</h3>
-            <p>Pour gérer les utilisateurs avec les options suivantes:</p> 
-            <p>(Ajout, Suppression, Rechercher) </p>
-            </StyledDiv>
-            <StyledDiv >
-          <StyledImg src={Image2} alt='Role'/>
-            <h3>Gestion des roles</h3>
-            <p>Pour gérer les roles des utilisateurs avec les options suivantes:</p>
-            <p>(Ajout, Suppression)</p>
-            </StyledDiv>
-            <StyledDiv>
-            <StyledImg src={Image} alt='Acces'/>
-            <h3>Gestion des droits d'acces </h3>
-            <p>Pour gérer les droits d'acces avec les options suivantes:</p>
-            <p>(Ajout, Suppression)</p>
-            </StyledDiv>
-            </div>
-            </div>
+            <Box sx={{
+                position: 'absolute',
+                top: '10px',
+                left: 'auto',
+                right: '0px',
+                bottom: '0',          
+            }}>
+         <Button variant='contained'  href='/Menu' color="success">Commencer</Button></Box>
+         <img src={Image1} alt='parametre' style={{height:'90px'}} />
+         <Typography variant='h3' align='center' color="GrayText" gutterBottom>Administration</Typography>
+         <Typography variant="h5" align='center' color='ButtonText' paragraph>
+         Bienvenu dans la page administration, vous pouvez tout de suit parametrer l'application
+             en vous appuyons sur le boutton "Commencer" en haut à droite de votre écran, pour gérer 
+             votre rôles grace aux les modules que nous vous proposants.</Typography>
+             <Typography variant='h4' align='center'>Nos Modules</Typography>            
+     <Card sx={{ maxWidth: 345, position: 'relative',
+                top: '100px',
+                left: '40%',
+                right: '0px',
+                bottom: '0',  }}>
+      <CardMedia
+        component="img"
+        height="250"
+        image="https://png.pngtree.com/png-vector/20190307/ourmid/pngtree-vector-user-management-icon-png-image_780394.jpg"
+        alt="utilisateur"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        Gestion des utilisateurs
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Pour gérer les roles des utilisateurs avec les options suivantes: (Ajout, Suppression)
+        </Typography>
+      </CardContent>
+    </Card>
+    <Card sx={{ maxWidth: 345, position: 'relative',
+                top: '150px',
+                left: '40%',
+                right: '0px',
+                bottom: '0',  }}>
+      <CardMedia
+        component="img"
+        height="250"
+        image="https://www.pngitem.com/pimgs/m/508-5089354_roles-and-responsibilities-png-transparent-png.png"
+        alt="role"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        Gestion des roles
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Pour gérer les roles des roles avec les options suivantes: (Ajout, Suppression)
+        </Typography>
+      </CardContent>
+    </Card>
+    <Card sx={{ maxWidth: 345, position: 'relative',
+                top: '200px',
+                left: '40%',
+                right: '0px',
+                bottom: '0',  }}>
+      <CardMedia
+        component="img"
+        height="250"
+        image="https://png.pngtree.com/png-vector/20190919/ourlarge/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1742031.jpg"
+        alt="acces"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        Gestion des droits d'acces
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+        Pour gérer les roles des roles avec les options suivantes: (Ajout, Suppression)
+        </Typography>
+      </CardContent>
+    </Card>
         </div>
     );
 }

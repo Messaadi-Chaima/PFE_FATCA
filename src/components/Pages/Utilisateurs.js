@@ -1,10 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
-import Image1 from '../Images/icon.png'
-import { Link } from 'react-router-dom'
+//import styled from 'styled-components'
+//import Image1 from '../Images/icon.png'
+//import { Link } from 'react-router-dom'
 import UserList from '../Redux/UserList'
 import Menu from '../Menu'
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
 function  Utilisateurs() {
+  /* 
   const StyledDiv = styled.div`    
   padding-top: 60px;
 `;
@@ -39,16 +43,20 @@ font-size: 25px;
 transform: translateY(200px);
 color:#B22222;
 `;
-
+*/
 return (
   <div>
     <Menu />
-<StyledDiv>
-<StyledP> Vous pouvez ajouter un utilisateur en cliquant simplement sur le bouton Ajout a droite de votre ecran</StyledP>
-<StyledImg src={Image1} alt='ajout' />
-<StyledH2>Vos Utilisateurs</StyledH2> 
+<div>
+  <Box sx={{transform: 'translate(350px,15px)'}}>
+<Typography variant='h6' paragraph>Vous pouvez ajouter un utilisateur en cliquant simplement sur le bouton Ajout a droite de votre ecran</Typography></Box>
+{/* 
+<StyledP> Vous pouvez ajouter un utilisateur en cliquant simplement sur le bouton Ajout a droite de votre ecran</StyledP>*/}
+{/*<StyledImg src={Image1} alt='ajout' />*/}
+<Box sx={{transform: 'translate(350px,200px)'}}>
+<Typography variant='h6'>Vos Utilisateurs</Typography></Box>
 <UserList />
-</StyledDiv>
+</div>
 </div>
   );
 }

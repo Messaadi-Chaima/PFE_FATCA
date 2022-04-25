@@ -1,8 +1,13 @@
 import React,{ useState }  from "react";
 import Papa from "papaparse";
-import Table from '../StyledComponents/Table/Table'
-import Td from '../StyledComponents/Table/Td'
-import Th from '../StyledComponents/Table/Th'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 function Csv() {
   const [parsedData, setParsedData] = useState([]);
   const [tableRows, setTableRows] = useState([]);
@@ -26,6 +31,10 @@ function Csv() {
   };
   return (
     <div>
+
+      <Button variant="contained" color="success">
+      Ajouter une colonne
+      </Button>
       <input
         type="file"
         name="file"
@@ -33,28 +42,32 @@ function Csv() {
         accept=".csv"
         style={{ display: "block", margin: "10px auto"}}
       />
-      <button>Modifier une ligne</button>
-      <button>Ajouter une colonne</button>
+      <TableContainer component={Paper}>
       <Table>
-        <thead>
-          <tr>
+        <TableHead>
+          <TableRow>
             {tableRows.map((rows, index) => {
-              return <Th key={index}>{rows}</Th>;
+              return <TableCell key={index}>{rows}</TableCell>;
             })}
-          </tr>
-        </thead>
-        <tbody>
+            <TableCell>Action</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {values.map((value, index) => {
             return (
-              <tr key={index}>
+              <TableRow key={index}>
                 {value.map((val, i) => {
-                  return <Td key={i}>{val}</Td>;
+                  return <TableCell key={i}>{val}</TableCell>;
                 })}
-              </tr>
+                <TableCell><button>Modifier</button>
+                <button>Supprimer</button>
+                </TableCell>
+              </TableRow>
             );
           })}
-        </tbody>
+        </TableBody>
       </Table>
+      </TableContainer>
     </div>
   );
 }

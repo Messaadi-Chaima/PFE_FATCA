@@ -1,9 +1,20 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import Table from '../StyledComponents/Table/Table';
-import Th from '../StyledComponents/Table/Th';
-import Td from '../StyledComponents/Table/Td';
-import Button1 from '../StyledComponents/Formulaire/Button1';
+//import Table from '../StyledComponents/Table/Table';
+//import Th from '../StyledComponents/Table/Th';
+//import Td from '../StyledComponents/Table/Td';
+//import Button1 from '../StyledComponents/Formulaire/Button1';
+//import Box from '@mui/material/Box';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+//import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Fab from '@mui/material/Fab';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Typography from '@mui/material/Typography';
+import AddIcon from '@mui/icons-material/Add';
 import Menu from '../Menu';
 function AjouterRole() {
   const dispatch = useDispatch();
@@ -12,9 +23,10 @@ function AjouterRole() {
   return (
     <div> 
       <Menu />
-      <h2 style={{transform: 'translateY(150px)',color:"#B22222"}}>Voici les role de votre utilisateurs</h2>
-        <i> <p style={{transform: 'translateY(170px)',textAlign:'center'}}>Vous pouvez d'ajouter et supprimer un role de votre utilisateur en cliquant simplement sur le bouton Ajouter et Supprimer</p></i>
-         <Table>       
+    {/*   <h2 style={{transform: 'translateY(150px)',color:"#B22222"}}>Voici les role de votre utilisateurs</h2>
+        <i> <p style={{transform: 'translateY(170px)',textAlign:'center'}}>Vous pouvez d'ajouter
+         et supprimer un role de votre utilisateur en cliquant simplement sur le bouton Ajouter et Supprimer</p></i>*/}
+        {/*  <Table>       
         <thead>
            <tr>
           <Th >Nom d'utilisateur</Th>
@@ -34,7 +46,36 @@ function AjouterRole() {
             </tr>
              )) }
           </tbody>
-        </Table> 
+        </Table> */}
+        <Typography variant='h6' sx={{transform: 'translate(340px,150px)'}}>Voici les role de votre utilisateurs</Typography>
+         <Typography variant='body1' paragraph sx={{transform: 'translate(100px,170px)',textAlign:'center'}}>Vous pouvez d'ajouter
+         et supprimer un role de votre utilisateur en cliquant simplement sur le bouton Ajouter et Supprimer</Typography>
+            <Table
+         sx={{ maxWidth: '870px' ,transform: 'translate(340px,200px)', }} size="small" >       
+        <TableHead>
+           <TableRow>
+          <TableCell >Nom d'utilisateur</TableCell>
+          <TableCell>Role</TableCell>
+          <TableCell>Action</TableCell>   
+        </TableRow>
+         </TableHead>
+          <TableBody>
+            { users.map(user => ( 
+                 <TableRow key={user.id}> 
+              <TableCell>{user.name}</TableCell>
+              <TableCell>{user.role}</TableCell>
+              <TableCell>
+                <Fab size="small" color="success" aria-label="Add" sx={{ mr: 1 }} >
+                   <AddIcon />
+                </Fab>
+              <Fab size="small" color="success" aria-label="delete" sx={{ mr: 1 }} >
+                   <DeleteIcon />
+                </Fab>
+              </TableCell>
+            </TableRow>
+             )) }
+          </TableBody>
+        </Table>
       </div>
   );
 }
