@@ -33,7 +33,7 @@ function Csv() {
     <div>
 
       <Button variant="contained" color="success">
-      Ajouter une colonne
+      Ajouter une ligne
       </Button>
       <input
         type="file"

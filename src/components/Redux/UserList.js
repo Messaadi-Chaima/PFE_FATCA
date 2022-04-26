@@ -18,6 +18,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import Fab from '@mui/material/Fab';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import { TextField } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 const UserList = () => {
   const dispatch = useDispatch();
   const users = useSelector(store => store.users);
@@ -67,6 +69,14 @@ const DateAjout =() =>{
                 <AddIcon />
           </Fab>
               </Link></Box>
+              <Box sx={{transform: 'translate(300px,170px)', }}>
+                <Fab  aria-label="search" size="small">
+                  <SearchIcon />
+                </Fab>
+              <TextField 
+            variant="outlined"
+            label="Rechercher"
+          /></Box>
          <Table
          sx={{ maxWidth: '870px' ,transform: 'translate(340px,200px)', }} size="small" >       
         <TableHead>

@@ -53,7 +53,7 @@ return (
 {/* 
 <StyledP> Vous pouvez ajouter un utilisateur en cliquant simplement sur le bouton Ajout a droite de votre ecran</StyledP>*/}
 {/*<StyledImg src={Image1} alt='ajout' />*/}
-<Box sx={{transform: 'translate(350px,200px)'}}>
+<Box sx={{transform: 'translate(350px,120px)'}}>
 <Typography variant='h6'>Vos Utilisateurs</Typography></Box>
 <UserList />
 </div>
