@@ -8,6 +8,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 function Csv() {
   const [parsedData, setParsedData] = useState([]);
   const [tableRows, setTableRows] = useState([]);
@@ -31,7 +34,6 @@ function Csv() {
   };
   return (
     <div>
-
       <Button variant="contained" color="success">
       Ajouter une ligne
       </Button>
@@ -59,8 +61,13 @@ function Csv() {
                 {value.map((val, i) => {
                   return <TableCell key={i}>{val}</TableCell>;
                 })}
-                <TableCell><button>Modifier</button>
-                <button>Supprimer</button>
+                <TableCell>
+                <Fab size="small" color="success" aria-label="Edit" sx={{ mr: 1 }} >
+                   <EditIcon/>
+                </Fab>
+                <Fab size="small" color="success" aria-label="delete" sx={{ mr: 1 }} >
+                   <DeleteIcon />
+                </Fab>
                 </TableCell>
               </TableRow>
             );

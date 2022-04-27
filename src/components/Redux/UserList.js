@@ -1,17 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-//import Button from "../StyledComponents/Button";
 import { deleteUser } from "./userSlice";
-//import Button1 from "../StyledComponents/Formulaire/Button1";
-//import Table from '../StyledComponents/Table/Table';
-//import Th from '../StyledComponents/Table/Th';
-//import Td from '../StyledComponents/Table/Td';
-//import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-//import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import EditIcon from '@mui/icons-material/Edit';
@@ -21,6 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 const UserList = () => {
+  
   const dispatch = useDispatch();
   const users = useSelector(store => store.users);
 const handleSupprimerUser=(id) =>{
@@ -32,35 +26,6 @@ const DateAjout =() =>{
 }
   return (
 <div>
-  {/* 
-  <Box sx={{
-   transform: 'translate(400px,100px)',
-  }}>
-   <Link to="/AjoutUtilisateur">   <Button color='success'>Ajout</Button></Link></Box>
-      <Table>       
-        <thead>
-           <tr>
-          <Th >Nom d'utilisateur</Th>
-          <Th>Email</Th>
-          <Th>Role</Th>     
-          <Th>Date d'ajoute</Th>
-          <Th>Action</Th>
-        </tr>
-         </thead>
-          <tbody>
-            { users.map(user => ( 
-                 <tr> 
-              <Td>{user.name}</Td>
-              <Td>{user.email}</Td>
-              <Td>{user.role}</Td>
-              <Td>{DateAjout()}</Td>
-              <Td>
-              
-              </Td>
-            </tr>
-             )) }
-          </tbody>
-        </Table>  */}
         <Box sx={{
         float: 'right',
         }}>

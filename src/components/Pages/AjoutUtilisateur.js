@@ -1,17 +1,11 @@
 import React,{useState} from 'react'
-//import styled,{createGlobalStyle , css} from 'styled-components'
 import Form from '../StyledComponents/Formulaire/Form';
 import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
 import { addUser } from "../Redux/userSlice"
 import Box from '@mui/material/Box';
-//import Card from '@mui/material/Card';
-//import CardContent from '@mui/material/CardContent';
-//import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
-//import Stack from '@mui/material/Stack';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import { green} from '@mui/material/colors';
 import {TextField } from '@mui/material';
@@ -22,52 +16,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-//import Button2 from '../Redux/Button2';
-//import Link1 from '../StyledComponents/Menu/Link1';
-/* 
-const GlobalStyle = createGlobalStyle`
-html {
-  height: 100%.
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #FAFCC2;
-  height: 100%;
-  margin: 0;
-  color: #555;
-}
-h2{
-  transform: translateY(-12px);
-  text-align: center;
-}
-`;
-const sharedStyles = css`
-background-color: #eee;
-height: 40px;
-border-radius: 5px;
-border: 1px solid #ddd;
-margin: 10px 0 20px 0;
-padding: 20px;
-box-sizing: border-box;
-`;  
-const StyledDiv = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-padding: 0 20px;
-`;
-const StyledInput = styled.input`
-display: block;
-width: 100%;
-${sharedStyles}
-`;
-const StyledError= styled.div`
-color : red;
-font-weight: 800;
-margin: 0 0 40px 0;
-`; */
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
 const AjoutUtilisateur = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
@@ -75,7 +26,15 @@ const AjoutUtilisateur = () => {
     email: '',
     role:'',
   });
+  const [open, setOpen] = useState(false);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const handleAddUser = () => {
     setValues({ name: '', email: '' ,role:''});
     dispatch(addUser({
@@ -122,39 +81,25 @@ const AjoutUtilisateur = () => {
         </Select>
       </FormControl>
     </Box> 
-   <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Box sx={{ margin: '20px 20px 20px 110px'}}><Button variant="contained" endIcon={<SendIcon />} color='success' 
-   onClick={()=> {if(window.confirm('Voulez-vous ajouter cet utilisateur?')){ handleAddUser();}}}>
+   <Box sx={{ margin: '20px 20px 20px 110px'}}><Button variant="contained" endIcon={<SendIcon />} color='success' 
+   onClick={handleClickOpen}>
   Envoyer
-</Button></Box></Link>
+</Button></Box>
  </Form>
- 
-   {/* 
-    <StyledDiv>
-  <GlobalStyle />
-  <Form>
-    <label> Nom d'utilisateur
-      <StyledInput
-        value={values.name}
-        onChange={(e) => setValues({ ...values, name: e.target.value })}
-        inputProps={{ type: 'text', placeholder: 'Nom Utilisateur' }}
-      /></label>
-      <label> Email
-      <StyledInput
-        label="Email"
-        value={values.email}
-        onChange={(e) => setValues({ ...values, email: e.target.value })}
-        inputProps={{ type: 'email', placeholder: "Entrez l'email de l'utilisateur" }}
-      /></label>
-      <label>Role
-      <StyledInput
-        label="role"
-        value={values.role}
-        onChange={(e) => setValues({ ...values, role: e.target.value })}
-        inputProps={{ type: 'text', placeholder: "Entrer le role de l'utilisateur" }}
-      /></label>
-     <Link1 to='/Utilisateurs'> <Button2 onClick={()=> {if(window.confirm('Voulez-vous ajouter cet utilisateur?')){ handleAddUser();}}}>Envoyer</Button2></Link1>
-      </Form>
-    </StyledDiv> */}
+ <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Voulez-vous vraiment ajouter cet utilisateur?"}
+        </DialogTitle>
+        <DialogActions>  
+   <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button onClick={handleAddUser}>
+            Oui
+          </Button></Link>
+          <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button onClick={handleClose}>Non</Button></Link>
+        </DialogActions>
+      </Dialog>
   </div>  
   );
 }

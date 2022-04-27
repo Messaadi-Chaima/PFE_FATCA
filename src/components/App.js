@@ -2,11 +2,8 @@ import React from 'react'
 import {BrowserRouter,  Routes, Route} from 'react-router-dom';
 import Menu from './Menu';
 import AjoutUtilisateur from './Pages/AjoutUtilisateur';
-//import SpprimerUtilisateur from './Pages/SupprimerUtilisateur';
 import AjouterDroitAcces from './Pages/AjouterDroitAcces'
-//import SupprimerDroitAcces from './Pages/SupprimerDroitAcces'
 import AjouterRole from './Pages/AjouterRole'
-//import SupprimerRole from './Pages/SupprimerRole';
 import Utilisateurs from './Pages/Utilisateurs';
 import AccueilAdmin from '../components/Pages/AccueilAdmin';
 import Csv from './Pages/Csv';
@@ -20,16 +17,8 @@ function App() {
          <Route exact  path='/Utilisateurs'  element={<Utilisateurs />} />  
           <Route path='/AjouterRole' element={<AjouterRole />} />
            <Route path='/AjoutUtilisateur' element={<AjoutUtilisateur />} />
-          
           <Route path='/AjouterDroitAcces' element={<AjouterDroitAcces />} />
-           {/*
-        <Route exact  path='/SpprimerUtilisateur'  element={<SpprimerUtilisateur />} />
-       
-        <Route exact  path='/SupprimerDroitAcces'  element={<SupprimerDroitAcces />} />
-        <Route exact  path='/SupprimerRole'  element={<SupprimerRole />} />
-        */}
-        </Routes> 
-           
+        </Routes>           
     </BrowserRouter>
         
 

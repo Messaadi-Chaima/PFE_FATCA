@@ -22,11 +22,11 @@ function AjouterDroitAcces() {
       <Menu />
         <Typography variant='h6' sx={{transform: 'translate(340px,150px)'}}>Voici les droits d'acces de votre utilisateurs</Typography>
          <Typography variant='body1' paragraph sx={{transform: 'translate(100px,170px)',textAlign:'center'}}>Vous pouvez d'autoriser
-         et déautoriser l'acces de votre utilisateur en cliquant simplement sur le bouton Ajouter et Supprimer</Typography>
+         et désautoriser l'acces de votre utilisateur en cliquant simplement sur le bouton Ajouter et Supprimer</Typography>
          <Box sx={{
         float: 'right',
         }}>
-            <Fab color="success" aria-label="add">
+   <Fab color="success" aria-label="add">
                 <AddIcon />
           </Fab>
              </Box>
