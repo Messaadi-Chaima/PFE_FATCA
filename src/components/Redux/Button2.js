@@ -1,3 +1,4 @@
+import React from 'react'
 import Button1 from "../StyledComponents/Formulaire/Button1"
 const Button2 = ({ onClick, children }) => {
   return (

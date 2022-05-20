@@ -19,6 +19,9 @@ import Select from '@mui/material/Select';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import Tooltip from '@mui/material/Tooltip';
+import Fab from '@mui/material/Fab';  
 const AjoutUtilisateur = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
@@ -46,6 +49,16 @@ const AjoutUtilisateur = () => {
   }
  return (
  <div>
+   <Box sx={{float: 'right',transform: 'translate(-30px,40px)'}}>  
+ <Link to='/Utilisateurs' style={{textDecoration: 'none'}}>
+ <Tooltip title="Go Back">
+       
+        <Fab size="large"  color="success" aria-label="GoBack" >
+                   <KeyboardReturnIcon />
+                </Fab>
+                 </Tooltip>              
+ </Link>
+ </Box>
    <Typography variant='h6' sx={{transform: 'translate(70px,50px)'}}>Nouveau utilisateur</Typography>
       <Avatar sx={{height:'50px', width:'50px', bgcolor: green[500], top:'10px',left:'10px'}}>
         <GroupAddIcon />
