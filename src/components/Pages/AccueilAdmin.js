@@ -26,7 +26,7 @@ function AccueilAdmin(){
              <Typography variant='h4' align='center'>Nos Modules</Typography>            
      <Card sx={{ maxWidth: 345, position: 'relative',
                 top: '100px',
-                left: '40%',
+                left: '20%',
                 right: '0px',
                 bottom: '0',  }}>
       <CardMedia
@@ -40,13 +40,13 @@ function AccueilAdmin(){
         Gestion des utilisateurs
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Pour gérer les roles des utilisateurs avec les options suivantes: (Ajout, Suppression)
+        Pour gérer les rôles des utilisateurs avec les options suivantes: (Ajout, Suppression,modification,recherche)
         </Typography>
       </CardContent>
     </Card>
     <Card sx={{ maxWidth: 345, position: 'relative',
-                top: '150px',
-                left: '40%',
+                top: '-270px',
+                left: '55%',
                 right: '0px',
                 bottom: '0',  }}>
       <CardMedia
@@ -57,13 +57,14 @@ function AccueilAdmin(){
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-        Gestion des roles
+        Gestion des rôles
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Pour gérer les roles des roles avec les options suivantes: (Ajout, Suppression)
+        Pour gérer les roles des roles avec les options suivantes: (Ajout, Suppression,modification,recherche)
         </Typography>
       </CardContent>
     </Card>
+    {/*
     <Card sx={{ maxWidth: 345, position: 'relative',
                 top: '200px',
                 left: '40%',
@@ -75,6 +76,7 @@ function AccueilAdmin(){
         image="https://png.pngtree.com/png-vector/20190919/ourlarge/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1742031.jpg"
         alt="acces"
       />
+       
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
         Gestion des droits d'acces
@@ -83,7 +85,7 @@ function AccueilAdmin(){
         Pour gérer les roles des roles avec les options suivantes: (Ajout, Suppression)
         </Typography>
       </CardContent>
-    </Card>
+    </Card>*/}
         </div>
     );
 }

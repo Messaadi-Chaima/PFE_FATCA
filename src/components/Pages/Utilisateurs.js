@@ -10,7 +10,7 @@ return (
     <Menu />
 <div>
   <Box sx={{transform: 'translate(350px,15px)'}}>
-<Typography variant='h6' paragraph>Vous pouvez ajouter un utilisateur en cliquant simplement sur le bouton Ajout a droite de votre ecran</Typography></Box>
+<Typography variant='h6' paragraph>Vous pouvez ajouter un utilisateur en cliquant simplement sur le bouton Ajout a droite de votre écran</Typography></Box>
 <Box sx={{transform: 'translate(350px,120px)'}}>
 <Typography variant='h6'>Vos Utilisateurs</Typography></Box>
 <UserList />

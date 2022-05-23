@@ -12,10 +12,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import Fab from '@mui/material/Fab';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import { Input, TextField } from "@mui/material";
+import {  TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import Tooltip from '@mui/material/Tooltip'; 
-                       
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
+import Button from "@mui/material/Button";
+
 const UserList = () => {
   const dispatch = useDispatch();
   const users = useSelector(store => store.users);
@@ -32,14 +36,24 @@ console.log(e.target.value);
 let value = e.target.value;
 setSearch(value);
 };
-console.log(search);
+//console.log(search);
+
+const [open, setOpen] = useState(false);
+
+const handleClickOpen = () => {
+  setOpen(true);
+};
+
+const handleClose = () => {
+  setOpen(false);
+};
   return (
 <div>
         <Box sx={{
         float: 'right',
         }}>
             <Link to="/AjoutUtilisateur" style={{textDecoration: 'none'}}>
-            <Tooltip title="Add">
+            <Tooltip title="Add User">
             <Fab color="success" aria-label="add">
                 <AddIcon />
           </Fab>
@@ -67,23 +81,39 @@ console.log(search);
         </TableRow>
          </TableHead>
           <TableBody>
-            { users.filter((user)=>{
+            { users.filter((user)=>{ console.log('id:',user.id)
               return user.name.includes(search);
             })
-            .map(user => ( 
+            .map((user) => ( 
                   <>
-                  <TableRow key={user.id}>
-                  <TableCell key={user.id}>{user.name}</TableCell>
-              <TableCell key={user.id}>{user.email}</TableCell>
-              <TableCell key={user.id}>{user.role}</TableCell>
-              <TableCell>{DateAjout()}</TableCell>
+                  <TableRow key={user.id} >
+                  <TableCell >{user.name}</TableCell>
+              <TableCell >{user.email}</TableCell>
+              <TableCell >{user.role}</TableCell>
+              <TableCell>{DateAjout()}</TableCell> 
               <TableCell>
               <Tooltip title="Delete">
-              <Fab size="small" color="success" aria-label="delete" sx={{ mr: 1 }} onClick={()=> {if(window.confirm('Voulez-vous vraiment supprimer cet utilisateur?')){ handleSupprimerUser(user.id);}}}>
+              <Fab size="small" color="success" aria-label="delete" sx={{ mr: 1 }} onClick={handleClickOpen}>
                    <DeleteIcon />
                 </Fab>
                 </Tooltip>
-                <Link to="/Modifier" style={{textDecoration: 'none'}}>
+
+                <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Voulez-vous vraiment supprimer cet utilisateur?"}
+        </DialogTitle>
+        <DialogActions>  
+   <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button color='success' onClick={()=> {handleSupprimerUser(user.id)}}>
+            Oui
+          </Button></Link>
+          <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button color='success' onClick={handleClose}>Non</Button></Link>
+        </DialogActions>
+      </Dialog>       
+
+                <Link to={`/Modifier/${user.id}`} style={{textDecoration: 'none'}}>
                 <Tooltip title="Edit">
           <Fab size="small"  color="success" aria-label="edit" >
                    <EditIcon />

@@ -18,6 +18,13 @@ const userSlice = createSlice({
         existingUser.role = role;
       }
     },
+    editRole: (state, action) => {
+      const { id,role } = action.payload;
+      const existingUser = state.find(user => user.id === id);
+      if(existingUser) {
+        existingUser.role = role;
+      }
+    },
     deleteUser: (state, action) => {
       const { id } = action.payload;
       const existingUser = state.find(user => user.id === id);
@@ -28,5 +35,5 @@ const userSlice = createSlice({
   }
 });
 
-export const { addUser, editUser,deleteUser } = userSlice.actions;
+export const { addUser, editUser,deleteUser,editRole } = userSlice.actions;
 export default userSlice.reducer;

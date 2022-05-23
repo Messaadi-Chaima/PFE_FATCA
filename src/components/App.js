@@ -9,6 +9,8 @@ import Csv from './Pages/Csv';
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import Modifier from '../components/Redux/Modifier';
+import AddModRole from './Pages/AddModRole'
+import TabCompte from '../components/Pages/TabCompte'
 function App() {
   return (
     <BrowserRouter>
@@ -18,11 +20,12 @@ function App() {
         <Route exact  path='/Menu'  element={<Menu />} />  
          <Route exact  path='/Utilisateurs'  element={<Utilisateurs />} />  
           <Route path='/AjouterRole' element={<AjouterRole />} />
-           <Route path='/AjoutUtilisateur' element={<AjoutUtilisateur />} />
-       
+           <Route path='/AjoutUtilisateur' element={<AjoutUtilisateur />} />  
           <Route path='/Login' element={<Login />} />
           <Route path='/Register' element={<Register />} />
-          <Route path='/Modifier' element={<Modifier />} />
+          <Route path='/Modifier/:id' element={<Modifier />} />
+          <Route path='/AddModRole/:id' element={<AddModRole />} />
+          <Route path='/TabCompte' element={<TabCompte />} />
         </Routes>           
     </BrowserRouter>
         

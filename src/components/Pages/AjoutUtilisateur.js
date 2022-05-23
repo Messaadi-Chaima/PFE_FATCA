@@ -21,7 +21,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Tooltip from '@mui/material/Tooltip';
-import Fab from '@mui/material/Fab';  
+import Fab from '@mui/material/Fab'; 
+
 const AjoutUtilisateur = () => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
@@ -30,14 +31,18 @@ const AjoutUtilisateur = () => {
     role:'',
   });
   const [open, setOpen] = useState(false);
-
+  const [ouv,setOuv]=useState(false);
   const handleClickOpen = () => {
-    setOpen(true);
+    if((values.name !== '') && (values.email !== '') && (values.role !== '')){
+    setOpen(true);} else {setOuv(true);}
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+ const handleFerme = () =>{
+   setOuv(false);
+ }
   const handleAddUser = () => {
     setValues({ name: '', email: '' ,role:''});
     dispatch(addUser({
@@ -71,7 +76,8 @@ const AjoutUtilisateur = () => {
       value={values.name}
       onChange={(e) => setValues({ ...values, name: e.target.value })} 
       sx={{display: 'block',margin: '10px 0 20px 0',marginLeft: '2px',
-      }}/>
+      }}
+      />
     
        <TextField 
        fullWidth
@@ -82,7 +88,7 @@ const AjoutUtilisateur = () => {
       sx={{display: 'block', margin: '10px 0 20px 0',marginLeft: '2px'}}
  />
   <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
+      <FormControl fullWidth color="success">
         <InputLabel >Role</InputLabel>
         <Select
           value={values.role}
@@ -107,12 +113,32 @@ const AjoutUtilisateur = () => {
           {"Voulez-vous vraiment ajouter cet utilisateur?"}
         </DialogTitle>
         <DialogActions>  
-   <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button onClick={handleAddUser}>
+   <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button color='success' onClick={handleAddUser}>
             Oui
           </Button></Link>
-          <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button onClick={handleClose}>Non</Button></Link>
+          <Link to='/Utilisateurs' style={{textDecoration: 'none'}}> <Button color='success' onClick={handleClose}>Non</Button></Link>
         </DialogActions>
       </Dialog>
+     
+      <Dialog
+        open={ouv}
+        onClose={handleFerme}
+      >   
+        <DialogTitle id="alert-dialog-title">
+        <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="h6" color='error'>
+              Il manque des informations!
+            </Typography>
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="h6" color='error'>
+            Merci de remplir tous les champs
+            </Typography>
+        </DialogTitle>
+        <DialogActions>  
+   <Button variant="outlined" color="error" onClick={handleFerme}>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+      
   </div>  
   );
 }
